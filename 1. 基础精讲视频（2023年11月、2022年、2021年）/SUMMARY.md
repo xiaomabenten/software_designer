@@ -3,4 +3,4 @@
 >  23年11月份备考视频
 >  22年份备考视频
 >  21年份备考视频  
-> ![公众号二维码](https://cdn-static.uoko.com/qrcode.jpg)
+> ![公众号二维码](https://chaidingoss.oss-cn-hangzhou.aliyuncs.com/qrcode.jpg)
