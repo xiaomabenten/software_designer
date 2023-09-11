@@ -5,7 +5,7 @@
 
 > 注意：获取更多在线视频资料和大文件无法上传GitHub，请关注公众号「**CTO说**」。关注后回复  『软件设计师』，免费领取2023年最新最全的软件设计师备考视频资料
 >
-> ![公众号二维码](https://cdn-static.uoko.com/qrcode.jpg)
+> ![公众号二维码](https://chaidingoss.oss-cn-hangzhou.aliyuncs.com/qrcode.jpg)
 
 
 #### 目录结构
