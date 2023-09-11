@@ -1,0 +1,72 @@
+import java.util.*;
+
+interface Patient {
+    (1);
+    // public String getName();
+}
+
+interface Disposer {
+    (2);
+    // public void dispose(Patient patient);
+}
+
+class Registry implements Disposer { // 挂号
+    public void dispose(Patient patient) {
+        System.out.println("I am registering..." + patient.getName());
+    }
+}
+
+class Doctor implements Disposer { // 医生门诊
+    public void dispose(Patient patient) {
+        System.out.println("I am diagnosing..." + patient.getName());
+    }
+}
+
+class Pharmacy implements Disposer { // 取药
+    public void dispose(Patient patient) {
+        System.out.println("I am medicine... " + patient.getName());
+    }
+}
+
+class Facade {
+    private Patient patient;
+
+    public Facade(Patient patient) {
+        this.patient = patient;
+    }
+
+    void dispose() {
+        Registry registry = new Registry();
+        Doctor doctor = new Doctor();
+        Pharmacy pharmacy = new Pharmacy();
+
+        registry.dispose(patient);
+        doctor.dispose(patient);
+        pharmacy.dispose(patient);
+    }
+}
+
+class ConcretePatient implements Patient {
+    private String name;
+
+    public ConcretePatient(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class FacadeTest {
+    public static void main(String[] args) {
+        Patient patient = (3);
+        // Patient patient = new ConcretePatient("zst");
+        
+        (4) f = (5);
+        // Facade f = new Facade(patient);
+        
+        (6);
+        // f.dispose();
+    }
+}

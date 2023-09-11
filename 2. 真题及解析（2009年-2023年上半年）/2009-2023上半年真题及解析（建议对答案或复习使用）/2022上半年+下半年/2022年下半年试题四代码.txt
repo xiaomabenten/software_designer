@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+#define MAXITEM 100
+
+/*
+ * 调正堆
+ * R：待排序数组；
+ * V：结点编号, 以 v 为根的二叉树, R[v] ≥ R[2v], R[v] ≥ R[2v + 1],
+ * 且其左子树和右子树都是大顶堆；
+ * n：堆结构的规模，即堆中的元素数
+ */
+void Heapify(int R[MAXITEM], int v, int n) {
+    int i, j;
+    i = v;
+    j = 2 * i;
+
+    R[0] = R[i];
+    while (j <= n) {
+        if (j < n && R[j] < R[j + 1]) {
+            j ++ ;
+        }
+        if ((1)) {
+        // if (R[0] < R[j]) {
+            R[i] = R[j];
+            i = j;
+            j = 2 * i;
+        } else {
+            j = n + 1;
+        }
+    }
+    R[i] = R[0];
+}
+
+/* 堆排序，R 为待排序数组： n 为数组大小 */
+void HeapSort(int R[MAXITEM], int n) {
+    int i;
+
+    for (i = n / 2; i >= 1; i -- ) { // 构建初始大顶堆
+        (2);
+        // Heapify(R, i, n);
+    }
+    
+    for (i = n; (3); i -- ) {
+    // for (i = n; i > 1; i -- ) {
+        R[0] = R[i];
+        R[i] = R[1];
+        (4);
+        // R[1] = R[0];
+        Heapify(R, 1, i - 1);
+    }
+}
+
+int main() {
+    int R[] = {0, 7, 10, 13, 15, 4, 20, 19, 8};
+    int n = 8;
+
+    HeapSort(R, n);
+
+    int k;
+    for (k = 1; k <= n; k ++ ) printf("%d ", R[k]);
+
+    return 0;
+}
