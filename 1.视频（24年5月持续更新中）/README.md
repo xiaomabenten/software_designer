@@ -6,3 +6,5 @@
 -  04.软件设计师真题视频讲解-持续更新
 -  05.软件设计师-最新直播回放
 > ![公众号二维码](https://chaidingoss.oss-cn-hangzhou.aliyuncs.com/qrcode.jpg)
+>
+> 24年视频资料（2月21号更新视频资料）
