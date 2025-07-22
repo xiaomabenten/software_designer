@@ -1,0 +1,43 @@
+import java.util.*;
+
+class Product {
+    private String partA;
+    private String partB;
+    public Product() {}
+    public void setPartA(String s) { partA = s; }
+    public void setPartB(String s) { partB = s; }
+}
+
+interface Builder {
+    public (1);
+    public void buildPartB();
+    public (2);
+}
+
+class ConcreteBuilder1 implements Builder {
+    private Product product;
+    public ConcreteBuilder1() { product = new Product(); }
+    public void buildPartA() { (3)("Component A"); }
+    public void buildPartB() { (4)("Component B"); }
+    public Product getResult() { return product;}
+}
+
+class ConcreteBuilder2 implements Builder {
+    // 代码省略
+}
+
+class Director {
+    private Builder builder;
+    public Director(Builder builder) { this.builder = builder; }
+    public void construct() {
+        (5);
+        // 代码省略
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        Director director1 = new Director(new ConcreteBuilder1());
+        director1.construct();
+    }
+}

@@ -1,0 +1,48 @@
+import java.util.*;
+
+class Department { /*代码省略*/ }
+
+interface IDepartment {
+    (1);
+    (2);
+}
+
+class SqlserverDepartment (3) {
+    public void Insert(Department department) {
+        System.out.println("Insert a record into Department in SQL Server!");
+        // 其余代码省略
+    }
+
+    public Department GetDepartment(int id) {
+        /*代码省略*/
+    }
+}
+
+class AccessDepartment (4) {
+    public void Insert(Department department) {
+        System.out.println("Insert a record into Department in ACCESS!");
+        // 其余代码省略
+    }
+
+    public Department GetDepartment(int id) {
+        /* 代码省略 */
+    }
+}
+
+(5) {
+    (6);
+}
+
+class SqlServerFactory implements IFactory {
+    public IDepartment CreateDepartment() {
+        return new SqlserverDepartment();
+    }
+    // 其余代码省略
+}
+
+class AccessFactory implements IFactory {
+    public IDepartment CreateDepartment() {
+        return new AccessDepartment();
+    }
+    // 其余代码省略
+}

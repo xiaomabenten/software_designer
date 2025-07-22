@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <math.h>
+
+#define N 6
+#define maxT 1000
+
+int c[N][maxT] = {0};
+
+int Calculate_Max_Value(int v[N], int w[N], int i, int j);
+
+int Memoized_Knapsack(int v[N], int w[N], int T) {
+    int i;
+    int j;
+    for (i = 0; i < N; i++) {
+        for (j = 0; j <= T; j++) {
+            c[i][j] = -1;
+        }
+    }
+    return Calculate_Max_Value(v, w, N - 1, T);
+}
+
+int Calculate_Max_Value(int v[N], int w[N], int i, int j) {
+    int temp = 0;
+    if (c[i][j] != -1) {
+        return (1);
+    }
+    if (i == 0 || j == 0) {
+        c[i][j] == 0;
+    } else {
+        c[i][j] = Calculate_Max_Value(v, w, i - 1, j);
+        if ((2)) {
+            temp = (3);
+            if (c[i][j] < temp) {
+                (4);
+            }
+        }
+    }
+    return c[i][j];
+}

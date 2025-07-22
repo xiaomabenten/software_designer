@@ -1,0 +1,46 @@
+import java.util.*;
+interface State {
+    public void insertQuarter();    // 投币
+    public void ejectQuarter();     // 退币
+    public void turnCrank();       // 按下“出纸巾”按钮
+    public void dispense();        // 出纸巾
+}
+class TissueMachine {
+    (1) soldOutState, noQuarterState, hasQuarterState, soldState, state;
+    state = soldOutState;
+    int count = 0; // 纸巾数
+    public TissueMachine(int numbers) { /* 实现代码省略 */ }
+    public State getHasQuarterState() { return hasQuarterState; }
+    public State getNoQuarterState() { return noQuarterState; }
+    public State getSoldState() { return soldState; }
+    public State getSoldOutState() { return soldOutState; }
+    public int getCount() { return count; }
+    // 其余代码省略
+}
+
+class NoQuarterState implements State {
+    TissueMachine tissueMachine;
+    public void insertQuarter() {
+        tissueMachine.setState((2));
+    }
+// 构造方法以及其余代码省略
+}
+
+
+class HasQuarterState implements State {
+    TissueMachine tissueMachine;
+    public void ejectQuarter() {
+        tissueMachine.setState((3));
+    }
+// 构造方法以及其余代码省略
+}
+
+class SoldState implements State {
+    TissueMachine tissueMachine;
+    public void dispense() {
+        if (tissueMachine.getCount() > 0) {
+            tissueMachine.setState((4));
+        } else {
+            tissueMachine.setState((5)); }
+    }
+}

@@ -1,0 +1,63 @@
+import java.util.*;
+
+class Memento {
+    private String state;
+    public Memento(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+}
+
+class Originator {
+    private String state;
+    public void setState(String state) {
+        this.state = state;
+    }
+    
+    public String getState() {
+        return state;
+    }
+    
+    public Memento saveStateToMemento() {
+        return (1);
+    }
+
+    public void getStateFromMemento(Memento Memento) {
+        state = (2);
+    }
+}
+
+class CareTaker {
+    private List<Memento> mementoList = new ArrayList<Memento>();
+
+    public (3) {
+        mementoList.add(state);
+    }
+
+    public (4) {
+        return mementoList.get(index);
+    }
+}
+
+
+class MementoPaneDemos {
+    public static void main(String[] args) {
+        Originator originator = new Originator();
+        CareTaker careTaker = new CareTaker();
+        originator.setState("State #1");
+        originator.setState("State #2");
+        careTaker.add((5));
+        originator.setState("State #3");
+        careTaker.add((6));
+        originator.setState("State #4");
+
+        System.out.println("Current State：" + originator.getState());
+        originator.getStateFromMemento(careTaker.get(0));
+        System.out.println("First saved State：" + originator.getState());
+        originator.getStateFromMemento(careTaker.get(1));
+        System.out.println("Second saved State：" + originator.getState());
+    }
+}

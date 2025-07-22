@@ -1,0 +1,44 @@
+(1) Drawing {
+    (2);
+    (3);
+}
+
+class DP1 {
+    static public void draw_a_line(double x1, double y1, double x2, double y2) { /* 代码省略 */ }
+    static public void draw_a_circle(double x, double y, double r) { /* 代码省略 */ }
+}
+
+class DP2 { 
+    static public void drawline(double x1, double y1, double x2 ,double y2) { /* 代码省略 */ }
+    static public void drawcircle (double x, double y, double r) { /* 代码省略 */ }
+}
+
+class V1Drawing implements Drawing {
+    public void drawLine(double x1, double y1, double x2 ,double y2) { /* 代码省略 */ }
+    public void drawCircle(double x, double y, double r) { (4); }
+}
+
+class V2Drawing implements Drawing {
+    public void drawLine(double x1, double y1, double x2 ,double y2) { /* 代码省略 */ }
+    public void drawCircle (double x, double y, double r) {（5）;} 
+}
+
+abstract class Shape {
+    private Drawing _dp;
+    (6);
+    Shape(Drawing dp) { _dp = dp; }
+    public void drawLine(double x1, double y1, double x2 ,double y2) { _dp.drawLine(x1, y1, x2, y2); }
+    public void drawCircle (double x, double y, double r) { _dp.drawCircle(x, y, r); }
+}
+
+class Rectangle extends Shape {
+    private double _x1, _x2, _y1, _y2;
+    public Rectangle(Drawing dp, double x1, double y1, double x2, double y2) { /* 代码省略 */ }
+    public void draw() { /* 代码省略 */ }
+}
+
+class Circle extends Shape {
+    private double _x, _y, _r;
+    public Circle(Drawing dp, double x, double y, double r) { /* 代码省略 */ }
+    public void draw() { drawCircle(_x, _y, _r); }
+}

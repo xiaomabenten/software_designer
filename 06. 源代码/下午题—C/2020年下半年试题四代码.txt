@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <cstdlib>
+
+void shellsort(int data[], int n) {
+    int *delta, k, i, t, dk, j;
+    k = n;
+    delta = (int *) malloc(sizeof(int) * (n / 2));
+    i = 0;
+    do {
+        (1);
+        delta[i++] = k;
+    } while ((2));
+
+    i = 0;
+    while ((dk = delta[i]) > 0) {
+        for (k = delta[i]; k < n; ++k)
+            if ((3)) {
+                t = data[k];
+                for (j = k - dk; j >= 0 && t < data[j]; j -= dk)
+                    data[j + dk] = data[j];
+                (4);
+            }
+        ++i;
+    }
+}

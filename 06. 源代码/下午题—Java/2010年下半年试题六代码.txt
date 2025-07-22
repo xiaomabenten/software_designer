@@ -1,0 +1,44 @@
+import java.util.*;
+
+(1) Company {
+    protected String name;
+    public Company(String name) { (2) = name; }
+    public abstract void Add(Company c); // 增加子公司、办尊处或部门
+    public abstract void Delete(Company c); // 删除子公司、办事处或部门
+}
+
+class ConcreteCompany extends Company {
+    private List<(3)> children = new ArrayList<(4)>();
+    // 存储子公司、办事处或部门
+    public ConcreteCompany(String name) { super(name); }
+    public void Add(Company c) { (5).add(c); }
+    public void Delete(Company c) { (6).remove(c); }
+}
+
+class HRDepartment extends Company {
+    public HRDepartment(String name) { super(name); }
+    // 其他代码省略
+}
+
+class FinanceDepartment extends Company {
+    public FinanceDepartment(String name) { super(name); }
+    // 其他代码省略
+}
+
+public class Test {
+    public static void main(String[] args) {
+        ConcreteCompany root = new ConcreteCompany("北京总公司");
+        root.Add(new HRDepartment("总公司人力资源部"));
+        root.Add(new FinanceDepartment("总公司财务部"));
+
+        ConcreteCompany comp = new ConcreteCompany("上海分公司");
+        comp.Add(new HRDepartment("上海分公司人力资源部"));
+        comp.Add(new FinanceDepartment("上海分公司财务部"));
+        (7);
+
+        ConcreteCompany comp1 = new ConcreteCompany("南京办事处");
+        comp1.Add(new HRDepartment("南京办事处人力资源部"));
+        comp1.Add(new FinanceDepartment("南京办事处财务部"));
+        (8); // 其他代码省略
+    }
+}

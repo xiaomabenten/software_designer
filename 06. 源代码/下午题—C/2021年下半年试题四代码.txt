@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+#define N 100
+
+char A[N] = "CTGA";
+char B[N] = "ACGCTA";
+int d[N][N];
+
+int min(int a, int b) {
+    return a < b ? a : b;
+}
+
+int editdistance(char *str1, int len1, char *str2, int len2) {
+    int i, j;
+    int diff;
+    int temp;
+
+    for (i = 0; i <= len1; i++) {
+        d[i][0] = i;
+    }
+
+    for (j = 0; j <= len2; j++) {
+        (1);
+    }
+
+    for (i = 1; i <= len1; i++) {
+        for (j = 1; j <= len2; j++) {
+            if ((2)) {
+                d[i][j] = d[i - 1][j - 1];
+            } else {
+                temp = min(d[i - 1][j] + 1, d[i][j - 1] + 1);
+                d[i][j] = min(temp, (3));
+            }
+        }
+    }
+
+    return (4);
+}

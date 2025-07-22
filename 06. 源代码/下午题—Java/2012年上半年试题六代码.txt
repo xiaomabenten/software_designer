@@ -1,0 +1,53 @@
+import java.util.*;
+
+(1) class Beverage { // 饮料
+    String description = "Unknown Beverage";
+    public (2) () { return description; }
+    public (3);
+}
+
+abstract class CondimentDecorator extends Beverage { // 配料
+    (4);
+}
+
+class Espresso extends Beverage { // 蒸馏咖啡
+    private final int ESPRESSO_PRICE = 25;
+    public Espresso() { description = "Espresso"; }
+    public int cost() { return ESPRESSO_PRICE; }
+}
+
+class DarkRoast extends Beverage { // 深度烘焙咖啡
+    private final int DARKROAST_PRICE = 20;
+    public DarkRoast() { description = "DarkRoast"; }
+    public int cost() { return DARKROAST_PRICE; }
+}
+
+class Mocha extends CondimentDecorator { // 摩卡
+    private final int MOCHA_PRICE = 10;
+    public Mocha (Beverage beverage) { this.beverage = beverage; }
+    public String getDescription() {
+        return beverage.getDescription() + ", Mocha";
+    }
+    public int cost() { return MOCHA_PRICE + beverage.cost(); }
+}
+
+class Whip extends CondimentDecorator { // 奶泡
+    private final int WHIP_PRICE = 8;
+    public Whip (Beverage beverage) { this.beverage = beverage; }
+    public String getDescription() {
+        return beverage.getDescription() + ", Whip";
+    }
+    public int cost() { return WHIP_PRICE + beverage.cost(); }
+}
+
+public class Coffee {
+    public static void main(String args[]) {
+        Beverage beverage = new DarkRoast();
+        beverage = new Mocha((5));
+        beverage = new Whip ((6));
+        System.out.println(beverage.getDescription() + " ￥" + beverage.cost());
+    }
+}
+
+编译运行上述程序，其输出结果为：
+        DarkRoast, Mocha, Whip ￥38

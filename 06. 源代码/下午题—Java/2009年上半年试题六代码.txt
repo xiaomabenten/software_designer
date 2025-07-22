@@ -1,0 +1,48 @@
+class Matrix { // 各种格式的文件最终都被转化为像素矩阵
+    // 此处代码省略
+}
+
+abstract class ImageImp {
+    public abstract void doPaint(Matrix m); // 显示像素矩阵 m
+}
+
+class WinImp extends ImageImp {
+    public void doPaint(Matrix m) { /*调用Windows系统的绘制函数绘制像素矩阵*/ }
+}
+
+class LinuxImp extends ImageImp {
+    public void doPaint(Matrix m) { /*调用Linux系统的绘制函数绘制像素矩阵*/ }
+}
+
+abstract class Image {
+    public void setImp(ImageImp imp) {
+        （1） = imp;
+    }
+    public abstract void parseFile(String fileName);
+    protected （2） imp;
+}
+
+class BMP extends Image {
+    public void parseFile(String fileName) {
+        // 此处解析BMP文件并获得一个像素矩阵对象 m
+        （3）; // 显示像素矩阵 m
+    }
+}
+
+class GIF extends Image {
+    // 此处代码省略
+}
+
+class JPEG extends Image {
+    // 此处代码省略
+}
+
+public class javaMain {
+    public static void main(String[] args) {
+        // 在 windows 操作系统上查看 demo.bmp图像文件
+        Image image1 = （4）;
+        ImageImp imageImp1 = （5）;
+        （6）;
+        Image1.parseFile("demo.bmp");
+    }
+}

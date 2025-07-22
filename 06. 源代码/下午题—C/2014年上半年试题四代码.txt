@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 65536
+
+void merge(int arr[], int p, int q, int r) {
+    int *left, *right;
+    int n1, n2, i, j, k;
+    n1 = q - p + 1;
+    n2 = r - q;
+    if ((left = (int *) malloc((n1 + 1) * sizeof(int))) == NULL) {
+        perror("malloc error");
+        exit(1);
+    }
+    if ((right = (int *) malloc((n2 + 1) * sizeof(int))) == NULL) {
+        perror("malloc error");
+        exit(1);
+    }
+    for (i = 0; i < n1; i++) {
+        left[i] = arr[p + i];
+    }
+    left[i] = MAX;
+    for (i = 0; i < n2; i++) {
+        right[i] = arr[q + i + 1];
+    }
+    right[i] = MAX;
+    i = 0;
+    j = 0;
+    for (k = p; (1); k++) {
+        if (left[i] > right[j]) {
+            (2);
+            j++;
+        } else {
+            arr[k] = left[i];
+            i++;
+        }
+    }
+}
+
+void mergeSort(int arr[], int begin, int end) {
+    int mid;
+    if ((3)) {
+        mid = (begin + end) / 2;
+        mergeSort(arr, begin, mid);
+        (4);
+        merge(arr, begin, mid, end);
+    }
+}

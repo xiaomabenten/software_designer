@@ -1,0 +1,61 @@
+import java.util.*;
+
+enum TYPE { NORMAL, CASH_DISCOUNT, CASH_RETURN};
+
+interface CashSuper {
+    public (1);
+}
+
+class CashNormal implements CashSuper { // 正常收费子类
+    public double acceptCash(double money) {
+        return money;
+    }
+}
+
+
+class CashDiscount implements CashSuper {
+    private double moneyDiscount; // 折扣率
+    public CashDiscount(double moneyDiscount) {
+        this moneyDiscount = moneyDiscount; 
+    }
+    public double acceptCash(double money) {
+        return money* moneyDiscount;
+    }
+}
+
+class CashReturn implements CashSuper { // 满额返利
+    private double moneyCondition;
+    private double moneyReturn;
+    public CashReturn(double moneyCondition, double moneyReturn) { 
+        this.moneyCondition = moneyCondition; // 满额数额
+        this.moneyReturn = moneyReturn; // 返利数额
+    }
+    public double acceptCash(double money) {
+        double result = money;
+        if(money >= moneyCondition )
+            result = money - Math.floor(money / moneyCondition) * moneyReturn;
+        return result;
+    }
+}
+
+class CashContext {
+    private CashSuper cs;
+    private TYPE t;
+    public CashContext(TYPE t) {
+        switch(t) {
+        case NORMAL: // 正常收费
+            (2);
+            break;
+        case CASH_DISCOUNT: // 打8折
+            (3);
+            break;
+        case CASH_RETURN: // 满300返100
+            (4);
+            break;
+        }
+    }
+    public double GetResult(double money) {
+        (5);
+    }
+    //此处略去main()函数
+}

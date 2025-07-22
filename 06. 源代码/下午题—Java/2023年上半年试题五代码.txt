@@ -1,0 +1,74 @@
+enum TYPE {
+    COMMA,
+    DOTS,
+    LINE
+}
+
+interface PrintStrategy {
+    public (1);
+}
+
+class Interval {
+    private double lower;
+    private double upper;
+
+    public Interval(double lower, double upper) {
+        this.lower = lower;
+        this.upper = upper;
+    }
+
+    public double getLower() {
+        return lower;
+    }
+
+    public double getUpper() {
+        return upper;
+    }
+
+    public void printIntervals(PrintStrategy ptr) {
+        (2);
+    }
+}
+
+class PrintIntervalsComma implements PrintStrategy {
+    public void doPrint(Interval val) {
+        System.out.println("[" + val.getLower() + "," + val.getUpper() + "]");
+    }
+}
+
+class PrintIntervalsDots implements PrintStrategy {
+    public void doPrint(Interval val) {
+        System.out.println("[" + val.getLower() + "..." + val.getUpper() + "]");
+    }
+}
+
+class PrintIntervalsLine implements PrintStrategy {
+    public void doPrint(Interval val) {
+        System.out.println("[" + val.getLower() + "-" + val.getUpper() + "]");
+    }
+}
+
+public class Main {
+    public static PrintStrategy getStrategy(TYPE type) {
+        PrintStrategy st = null;
+        switch (type) {
+            case COMMA:
+                (3);
+                break;
+            case DOTS:
+                (4);
+                break;
+            case LINE:
+                (5);
+                break;
+        }
+        return st;
+    }
+
+    public static void main(String[] args) {
+        Interval a = new Interval(1.7, 2.1);
+        a.printIntervals(getStrategy(TYPE.COMMA));
+        a.printIntervals(getStrategy(TYPE.DOTS));
+        a.printIntervals(getStrategy(TYPE.LINE));
+    }
+}

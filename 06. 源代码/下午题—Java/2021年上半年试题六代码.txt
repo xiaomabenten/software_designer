@@ -1,0 +1,52 @@
+import java.util.*;
+
+abstract class MenuComponent {  // 构成层叠菜单的元素
+    (1) String name;            // 菜单项或子菜单名称
+    public void printName() { System.out.println(name); }
+    public (2);
+    public abstract boolean removeMenuElement(MenuComponent element);
+    public (3);
+}
+
+
+class MenuItem extends MenuComponent {
+    public MenuItem(String name) { this.name=name; }
+    public boolean addMenuElement(MenuComponent element) { return false; }
+    public boolean removeMenuElement(MenuComponent element){ return false; }
+    public List<MenuComponent> getElement(){ return null; }
+}
+
+class Menu extends MemuComponent {
+    private (4);
+    public Menu(String name) {
+        this.name = name;
+        this.elementList = new ArrayList<MenuComponent>;
+    }
+    public boolean addMenuElement(MenuComponent element) {
+        return elementList.add(element);
+    }
+    public boolean removeMenuElement(MenuComponent element) {
+        return elementList.remove(element);
+    }
+    public List<MenuComponent> getElement() { return elementList; }
+}
+
+class CompositeTest {
+    public static void main(String[] args) { 
+        MenuComponent mainMenu = new Menu("Insert");
+        MenuComponent subMenu = new Menu("Chart");
+        MenuComponent element = new MenuItem("On This Sheet");
+        (5);
+        subMenu.addMenuElement(element);
+        printMenus(mainMenu);
+    }
+
+    private static void printMenus(MenuComponent ifile) {
+        ifile.printName();
+        List<MenuComponent> children = ifile.getElement();
+        if (children == null) return;
+        for(MenuComponent element; children) {
+            printMenus(element);
+        }
+    }
+}

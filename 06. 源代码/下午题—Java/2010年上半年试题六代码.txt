@@ -1,0 +1,37 @@
+interface FlyBehavior {
+    public void fly();
+}
+
+class SubSonicFly implements FlyBehavior {
+    public void fly() { System.out.println("亚音速飞行！"); }
+}
+
+class SuperSonicFly implements FlyBehavior {
+    public void fly() { System.out.println("超音速飞行！"); }
+}
+
+interface TakeOffBehavior {
+    public void takeOff();
+}
+
+class VerticalTakeOff implements TakeOffBehavior {
+    public void takeOff () { System.out.println("垂直起飞！"); }
+}
+
+class LongDistanceTakeOff implements TakeOffBehavior {
+    public void takeOff() { System.out.println("长距离起飞！"); }
+}
+
+abstract class AirCraft {
+    protected (1);
+    protected (2);
+    public void fly() { (3) ; }
+    public void takeOff() { (4) ; };
+}
+class Helicopter (5) AirCraft{
+public Helicopter () {
+    flyBehavior = new (6);
+    takeOffBehavior = new (7);
+    }
+}
+// 其它代码省略

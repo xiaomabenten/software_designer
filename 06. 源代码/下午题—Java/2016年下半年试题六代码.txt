@@ -1,0 +1,56 @@
+class Invoice {
+    public void printInvoice() {
+        System.out.println("This is the content of the invoice!");
+    }
+}
+
+class Decorator extends Invoice {
+    protected Invoice ticket;
+    public Decorator(Invoice t) {
+        ticket = t;
+    }
+    public void printInvoice() {
+        if (ticket != null)
+            (1);
+    }
+}
+
+class HeadDecorator extends Decorator {
+    public HeadDecorator(Invoice t) {
+        super(t);
+    }
+    public void printInvoice () {
+        System.out.println("This is the header of the invoice!");
+        (2);
+    }
+}
+
+class FootDecorator extends Decorator {
+    public FootDecorator(Invoice t) {
+        super(t);
+    }
+    public void printInvoice() {
+        (3);
+        System.out.println("This is the footnote of the invoice!");
+    }
+}
+
+class Test {
+    public static void main(String[] args) {
+        Invoice t = new Invoice();
+        Invoice ticket;
+        ticket = (4);
+        ticket.printInvoice();
+        System.out.println("--------------------");
+        ticket = (5);
+        ticket.printInvoice();
+    }
+}
+
+程序的输出结果为：
+        This is the header of the invoice!
+        This is the content of the invoice!
+        This is the footnote of the invoice!
+        --------------------
+        This is the header of the invoice!
+        This is the footnote of the invoice!

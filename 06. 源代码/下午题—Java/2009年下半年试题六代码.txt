@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+
+（1） class AbstractFile {
+    protected String name;
+    public void printName() { System.out.println(name); }
+    public abstract boolean addChild(AbstractFile file);
+    public abstract boolean removeChild(AbstractFile file);
+    public abstract List<AbstractFile> getChildren();
+}
+
+class File extends AbstractFile {
+    public File(String name) { this.name = name; }
+    public boolean addChild(AbstractFile file) { return false; }
+    public boolean removeChild(AbstractFile file) { return false; }
+    public List<AbstractFile> getChildren() { return （2）; }
+}
+
+class Folder extends AbstractFile {
+    private List<AbstractFile> childList;
+    public Folder(String name) {
+        this.name = name;
+        this.childList = new ArrayList<AbstractFile>();
+    }
+    public boolean addChild(AbstractFile file) { return childList.add(file); }
+    public boolean removeChild(AbstractFile file) {return childList.remove(file); }
+    public （3）<AbstractFile> getChildren() { return （4）; }
+}
+
+public class Client {
+    public static void main(String[] args) {
+        // 创造一个树形的文件/目录结构
+        AbstractFile rootFolder = new Folder("c:\\");
+        AbstractFile compositeFolder = new Folder("composite");
+        AbstractFile windowsFolder = new Folder("windows");
+        AbstractFile file = new File("TestComposite.java");
+        rootFolder.addChild(compositeFolder);
+        rootFolder.addChild(windowsFolder);
+        compositeFolder.addChild(file);
+        // 打印目录文件数
+        printTree(rootFolder);
+    }
+
+    private static void printTree(AbstractFile ifile) {
+        ifile.printName();
+        List<AbstractFile> children = ifile.getChildren();
+        if (Children == null) return;
+        for (AbstractFile file : Children) {
+            （5）;
+        }
+    }
+}
